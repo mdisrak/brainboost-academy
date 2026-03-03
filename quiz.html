@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BrainBoost Quiz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+font-family:Arial;
+background:#f4f7fb;
+text-align:center;
+padding:40px;
+}
+
+.quiz-box{
+background:white;
+padding:30px;
+max-width:500px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#3b82f6;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-box">
+<h2 id="question">Question Here</h2>
+
+<div id="options"></div>
+
+<button onclick="nextQuestion()">Next</button>
+
+<h3 id="score"></h3>
+</div>
+
+<script>
+const quiz = [
+{
+question: "What is 5 + 3?",
+options: ["6", "8", "9", "10"],
+answer: "8"
+},
+{
+question: "Which planet is known as Red Planet?",
+options: ["Earth", "Mars", "Jupiter", "Venus"],
+answer: "Mars"
+},
+{
+question: "Water chemical formula?",
+options: ["CO2", "H2O", "O2", "NaCl"],
+answer: "H2O"
+}
+];
+
+let current = 0;
+let score = 0;
+
+function loadQuestion(){
+document.getElementById("question").innerText = quiz[current].question;
+let optionsHTML = "";
+quiz[current].options.forEach(option => {
+optionsHTML += `<div><input type="radio" name="option" value="${option}"> ${option}</div>`;
+});
+document.getElementById("options").innerHTML = optionsHTML;
+}
+
+function nextQuestion(){
+let selected = document.querySelector('input[name="option"]:checked');
+if(selected && selected.value === quiz[current].answer){
+score++;
+}
+current++;
+
+if(current < quiz.length){
+loadQuestion();
+}else{
+document.querySelector(".quiz-box").innerHTML =
+`<h2>Your Score: ${score}/${quiz.length}</h2>
+<button onclick="location.reload()">Restart</button>`;
+}
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
