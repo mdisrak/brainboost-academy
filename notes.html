@@ -1,73 +1,136 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>BrainBoost Notes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body{
-font-family:Arial;
-background:#f4f7fb;
-padding:40px;
-text-align:center;
-}
+  <title>Notes - BrainBoost Academy</title>
 
-.notes-container{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-margin-top:40px;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      min-height: 100vh;
+    }
 
-.card{
-background:white;
-padding:25px;
-width:250px;
-border-radius:10px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .navbar {
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      padding: 15px 40px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-button{
-margin-top:15px;
-padding:10px 20px;
-border:none;
-background:#3b82f6;
-color:white;
-border-radius:5px;
-cursor:pointer;
-}
-</style>
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffd700;
+    }
+
+    .container {
+      padding: 50px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .notes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+      padding: 0 40px;
+    }
+
+    .note-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      padding: 25px;
+      transition: 0.4s;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .note-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+
+    .note-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .note-card p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #ffd700;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: white;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>📚 Study Notes</h1>
-
-<div class="notes-container">
-
-<div class="card">
-<h3>📘 Math Notes</h3>
-<p>Algebra Basics PDF</p>
-<a href="math.pdf" download>
-<button>Download</button>
-</a>
+<div class="navbar">
+  <div><b>BrainBoost Academy</b></div>
+  <div class="nav-links">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="notes.html">Notes</a>
+    <a href="#">Quiz</a>
+    <a href="#">Profile</a>
+  </div>
 </div>
 
-<div class="card">
-<h3>🔬 Science Notes</h3>
-<p>Physics Chapter 1 PDF</p>
-<a href="science.pdf" download>
-<button>Download</button>
-</a>
-</div>
+<div class="container">
+  <h1>📚 Study Notes</h1>
+  <p>Choose your subject and boost your knowledge 🚀</p>
 
-<div class="card">
-<h3>📖 English Notes</h3>
-<p>Grammar Guide PDF</p>
-<a href="english.pdf" download>
-<button>Download</button>
-</a>
-</div>
+  <div class="notes-grid">
 
+    <div class="note-card">
+      <h3>📐 Mathematics</h3>
+      <p>Algebra, Geometry, Trigonometry</p>
+      <button>Explore</button>
+    </div>
+
+    <div class="note-card">
+      <h3>🔬 Science</h3>
+      <p>Physics, Chemistry, Biology</p>
+      <button>Explore</button>
+    </div>
+
+    <div class="note-card">
+      <h3>💻 Computer</h3>
+      <p>HTML, CSS, JavaScript</p>
+      <button>Explore</button>
+    </div>
+
+    <div class="note-card">
+      <h3>📖 English</h3>
+      <p>Grammar, Writing, Literature</p>
+      <button>Explore</button>
+    </div>
+
+  </div>
 </div>
 
 </body>
