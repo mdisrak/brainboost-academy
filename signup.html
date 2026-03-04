@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Signup - BrainBoost Academy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+font-family:Arial;
+background:#f4f7fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:white;
+padding:30px;
+width:300px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+margin-top:15px;
+padding:10px;
+width:100%;
+border:none;
+background:#3b82f6;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+a{
+display:block;
+margin-top:10px;
+}
+
+#message{
+margin-top:10px;
+font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2>Create Account</h2>
+
+<input type="email" id="email" placeholder="Enter Email">
+<input type="password" id="password" placeholder="Enter Password">
+
+<button onclick="signup()">Signup</button>
+
+<a href="login.html">Already have account?</a>
+
+<p id="message"></p>
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCQWDQL6F7UXbR3XRRsGzmoxeo54Wzy4Y0",
+  authDomain: "brainboost-academy-9e080.firebaseapp.com",
+  projectId: "brainboost-academy-9e080",
+  storageBucket: "brainboost-academy-9e080.firebasestorage.app",
+  messagingSenderId: "910185183656",
+  appId: "1:910185183656:web:d9fbf6d230a2babd44859d",
+  measurementId: "G-XX4PWCTKTL"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.signup = function(){
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+createUserWithEmailAndPassword(auth, email, password)
+.then(() => {
+document.getElementById("message").style.color = "green";
+document.getElementById("message").innerText = "Account Created Successfully 🎉";
+})
+.catch(error => {
+document.getElementById("message").style.color = "red";
+document.getElementById("message").innerText = error.message;
+});
+}
+
+</script>
+
+</body>
+</html>
