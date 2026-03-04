@@ -4,7 +4,40 @@
   <title>Dashboard - BrainBoost Academy</title>
 </head>
 <body>
+  <button onclick="logout()">Logout</button>
+<p id="message"></p>
   <h1>Welcome to BrainBoost Academy 🎉</h1>
   <p>You are successfully logged in.</p>
+  <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCQWDQL6F7UXbR3XRRsGzmoxeo54Wzy4Y0",
+  authDomain: "brainboost-academy-9e080.firebaseapp.com",
+  projectId: "brainboost-academy-9e080",
+  storageBucket: "brainboost-academy-9e080.firebasestorage.app",
+  messagingSenderId: "910185183656",
+  appId: "1:910185183656:web:d9fbf6d230a2babd44859d"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.logout = function() {
+  signOut(auth).then(() => {
+    window.location.href = "login.html";
+  });
+};
+
+// 🔐 PROTECTION SYSTEM
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    window.location.href = "login.html";
+  }
+});
+
+</script>
 </body>
 </html>
