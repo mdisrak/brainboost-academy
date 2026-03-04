@@ -79,6 +79,7 @@ padding:30px;
 border-radius:10px;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
 transition:0.3s;
+cursor:pointer;
 }
 
 .card:hover{
@@ -91,12 +92,6 @@ color:white;
 text-align:center;
 padding:15px;
 margin-top:40px;
-}
-
-@media(max-width:768px){
-.hero h2{
-font-size:28px;
-}
 }
 </style>
 </head>
@@ -123,80 +118,21 @@ font-size:28px;
 <h2>Our Subjects</h2>
 <div class="subject-container">
 
-<div class="card">
-<h3>🌍 General Knowledge</h3>
-<p>Static GK, Important Days, Awards</p>
-</div>
-
-<div class="card">
-<h3>📰 Current Affairs</h3>
-<p>National & International News</p>
-</div>
-
-<div class="card">
-<h3>🏛 Indian Polity</h3>
-<p>Constitution & Government</p>
-</div>
-
-<div class="card">
-<h3>🏹 Indian History</h3>
-<p>Ancient, Medieval, Modern</p>
-</div>
-
-<div class="card">
-<h3>🌏 Geography</h3>
-<p>India & World Geography</p>
-</div>
-
-<div class="card">
-<h3>💰 Economics</h3>
-<p>GDP, Banking, Budget</p>
-</div>
-
-<div class="card">
-<h3>🔬 General Science</h3>
-<p>Physics, Chemistry, Biology</p>
-</div>
-
-<div class="card">
-<h3>📐 Mathematics</h3>
-<p>Arithmetic & Algebra</p>
-</div>
-
-<div class="card">
-<h3>🧠 Reasoning</h3>
-<p>Puzzles & Logical Thinking</p>
-</div>
-
-<div class="card">
-<h3>💻 Computer Awareness</h3>
-<p>Basic Computer Knowledge</p>
-</div>
-
-<div class="card">
-<h3>✍ Hindi Grammar</h3>
-<p>Sandhi, Samas, Muhavare</p>
-</div>
-
-<div class="card">
-<h3>✍ English Grammar</h3>
-<p>Tense, Voice, Narration</p>
-</div>
-
-<div class="card">
-<h3>🌾 Bihar GK</h3>
-<p>State Specific Knowledge</p>
-</div>
-
-<div class="card">
-<h3>📄 Previous Year Questions</h3>
-<p>Exam Practice Papers</p>
-</div>
-
-<div class="card">
-<h3>📝 Mock Test</h3>
-<p>Full Length Tests</p>
-</div>
+<div class="card" onclick="openSubject('gk')"><h3>🌍 General Knowledge</h3></div>
+<div class="card" onclick="openSubject('current')"><h3>📰 Current Affairs</h3></div>
+<div class="card" onclick="openSubject('polity')"><h3>🏛 Indian Polity</h3></div>
+<div class="card" onclick="openSubject('history')"><h3>🏹 Indian History</h3></div>
+<div class="card" onclick="openSubject('geography')"><h3>🌏 Geography</h3></div>
+<div class="card" onclick="openSubject('economics')"><h3>💰 Economics</h3></div>
+<div class="card" onclick="openSubject('science')"><h3>🔬 General Science</h3></div>
+<div class="card" onclick="openSubject('maths')"><h3>📐 Mathematics</h3></div>
+<div class="card" onclick="openSubject('reasoning')"><h3>🧠 Reasoning</h3></div>
+<div class="card" onclick="openSubject('computer')"><h3>💻 Computer Awareness</h3></div>
+<div class="card" onclick="openSubject('hindi')"><h3>✍ Hindi Grammar</h3></div>
+<div class="card" onclick="openSubject('english')"><h3>✍ English Grammar</h3></div>
+<div class="card" onclick="openSubject('bihar')"><h3>🌾 Bihar GK</h3></div>
+<div class="card" onclick="openSubject('pyq')"><h3>📄 Previous Year Questions</h3></div>
+<div class="card" onclick="openSubject('mock')"><h3>📝 Mock Test</h3></div>
 
 </div>
 </section>
@@ -204,6 +140,12 @@ font-size:28px;
 <footer>
 © 2026 BrainBoost Academy | All Rights Reserved
 </footer>
+
+<script>
+function openSubject(subject){
+window.location.href = "notes.html?subject=" + subject;
+}
+</script>
 
 </body>
 </html>
